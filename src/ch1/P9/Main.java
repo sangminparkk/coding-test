@@ -17,7 +17,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        ch1.P8.Main T = new ch1.P8.Main();
+        Main T = new Main();
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         System.out.println(T.solution(str));
