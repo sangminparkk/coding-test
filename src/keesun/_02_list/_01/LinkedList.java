@@ -44,7 +44,7 @@ public class LinkedList {
         LinkedNode next = null;
 
         while (current != null) {
-            next = current.next;
+//            next = current.next;  // 생략 가능
             current.next = prev;
             prev = current;
             current = next; // 다 끝이 나면 current는 null이 됨
