@@ -10,7 +10,7 @@ public class ConvertCase {
         Scanner sc = new Scanner(System.in);
         String str = sc.next().trim();
 
-        String result = convertCase.solution1(str);
+        String result = convertCase.solution2(str);
         System.out.println(result);
 
     }
@@ -27,5 +27,18 @@ public class ConvertCase {
         }
 
         return result.toString();
+    }
+
+    private String solution2(String str) {
+        String result = "";
+
+        for (char c : str.toCharArray()) {
+            if (c >= 65 && c <= 90) {
+                result += (char) (c + 32); // 형 변환 처리
+            } else {
+                result += (char) (c - 32);
+            }
+        }
+        return result;
     }
 }
