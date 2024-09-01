@@ -12,6 +12,23 @@ public class FindLongestWord {
         String content = scanner.nextLine().trim();
 
         System.out.println(findLongestWord.solution(content));
+        System.out.println(findLongestWord.solution2(content));
+    }
+
+    private String solution2(String content) {
+        String[] split = content.split(" ");
+        int max = Integer.MIN_VALUE;
+        String answer = "";
+
+        for (String s : split) {
+            int len = s.length();
+            if (len > max) {
+                max = len;
+                answer = s;
+            }
+        }
+
+        return answer;
     }
 
     private String solution(String content) {
