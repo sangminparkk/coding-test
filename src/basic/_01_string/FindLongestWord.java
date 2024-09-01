@@ -13,6 +13,29 @@ public class FindLongestWord {
 
         System.out.println(findLongestWord.solution(content));
         System.out.println(findLongestWord.solution2(content));
+        System.out.println("=== indexOf ===");
+        System.out.println(findLongestWord.solution3(content));
+    }
+
+    private String solution3(String content) {
+        int max = Integer.MIN_VALUE, pos;
+        String answer = "";
+
+        while ( (pos=content.indexOf(" ")) != -1) {
+            String tmp = content.substring(0, pos);
+            int len = tmp.length();
+            if (len > max) {
+                max = len;
+                answer = tmp;
+            }
+            content = content.substring(pos+1); // start position initialize
+        }
+
+        if (content.length() > max) { // 마지막 단어 포함
+            answer = content;
+
+        }
+        return answer;
     }
 
     private String solution2(String content) {
