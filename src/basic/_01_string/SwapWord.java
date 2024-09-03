@@ -1,26 +1,38 @@
 package basic._01_string;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class SwapWord {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         SwapWord swapWord = new SwapWord();
+
+        Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
 
-        List<String> result = new ArrayList<>();
+        String[] array = new String[number];
 
         for (int i = 0; i < number; i++) {
-            result.add(swapWord.solution(new StringBuilder(sc.next())));
+            array[i] = sc.next();
         }
 
-        result.forEach(System.out::println);
+        for (String s : swapWord.solution(number, array)) {
+            System.out.println(s);
+        }
+
     }
 
-    private String solution(StringBuilder word) {
-        return word.reverse().toString();
+    private ArrayList<String> solution(int number, String[] array) {
+        ArrayList<String> list = new ArrayList<>();
+
+        for (String s : array) {
+            StringBuilder stringBuilder  = new StringBuilder(s);
+            String reversed = stringBuilder.reverse().toString();
+            list.add(reversed);
+        }
+
+        return list;
     }
+
 }
