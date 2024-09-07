@@ -10,9 +10,19 @@ public class DeleteDuplicated {
         String input = sc.next();
 
         DeleteDuplicated deleteDuplicated = new DeleteDuplicated();
-        String result = deleteDuplicated.solution(input);
+        String result = deleteDuplicated.solution2(input);
         System.out.println(result);
 
+    }
+
+    private String solution2(String input) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            if (i == input.indexOf(input.charAt(i))) {
+                stringBuilder.append(input.charAt(i));
+            }
+        }
+        return stringBuilder.toString();
     }
 
     private String solution(String input) {
