@@ -11,8 +11,19 @@ public class ExtractNumber {
 
 
         ExtractNumber extractNumber = new ExtractNumber();
-        Integer result = extractNumber.solution(input);
+        Integer result = extractNumber.solution2(input);
         System.out.println(result);
+    }
+
+    private Integer solution2(String input) {
+        int answer = 0;
+        for (char x : input.toCharArray()) {
+            if (x >= 48 && x <= 57) {
+                answer = answer * 10 + (x - 48);
+            }
+        }
+
+        return answer;
     }
 
     private Integer solution(String input) {
