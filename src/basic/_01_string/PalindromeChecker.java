@@ -14,8 +14,8 @@ public class PalindromeChecker {
     }
 
     private String solution2(String input) {
-        input = input.toUpperCase();
         // 문자열 관련하여, index 접근방법을 늘 염두해두면 좋을 듯 하다. (꿀팁)
+        input = input.toUpperCase();
         for (int i = 0; i < input.length() / 2; i++) {
             if (input.charAt(i) != input.charAt(input.length() -1 - i)) {
                 return "NO";
@@ -25,12 +25,10 @@ public class PalindromeChecker {
     }
 
     private String solution(String input) {
-        input = input.toUpperCase();
-
         StringBuilder stringBuilder = new StringBuilder();
         String reversed = stringBuilder.append(input).reverse().toString();
 
-        if (input.equals(reversed)) {
+        if (input.equalsIgnoreCase(reversed)) {
             return "YES";
         }
         return "NO";
