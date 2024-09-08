@@ -11,8 +11,19 @@ public class ExtractNumber {
 
 
         ExtractNumber extractNumber = new ExtractNumber();
-        Integer result = extractNumber.solution2(input);
+        Integer result = extractNumber.solution3(input);
         System.out.println(result);
+    }
+
+    private Integer solution3(String input) {
+        String answer = "";
+        for (char c : input.toCharArray()) {
+            if (Character.isDigit(c)) {
+                answer += c;
+            }
+        }
+
+        return Integer.parseInt(answer);
     }
 
     private Integer solution2(String input) {
