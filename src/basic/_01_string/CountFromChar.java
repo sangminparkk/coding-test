@@ -21,8 +21,11 @@ public class CountFromChar {
             if (inputStr.charAt(i) == inputStr.charAt(i + 1)) {
                 count++;
             } else {
-                answer += count == 1 ? String.valueOf(inputStr.charAt(i)) : String.valueOf(inputStr.charAt(i)) + count;
-                count = 1;
+                answer += inputStr.charAt(i);
+                if (count > 1) {
+                    answer += String.valueOf(count);
+                    count = 1;
+                }
             }
         }
         return answer;
