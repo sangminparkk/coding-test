@@ -8,8 +8,24 @@ public class CountFromChar {
         String inputStr = scanner.nextLine();
 
         CountFromChar countFromChar = new CountFromChar();
-        String result = countFromChar.solution(inputStr);
+        String result = countFromChar.solution2(inputStr);
         System.out.println(result);
+    }
+
+    private String solution2(String inputStr) {
+
+        String answer = "";
+        inputStr = inputStr + " ";
+        int count = 1;
+        for (int i = 0; i < inputStr.length() - 1; i++) {
+            if (inputStr.charAt(i) == inputStr.charAt(i + 1)) {
+                count++;
+            } else {
+                answer += count == 1 ? String.valueOf(inputStr.charAt(i)) : String.valueOf(inputStr.charAt(i)) + count;
+                count = 1;
+            }
+        }
+        return answer;
     }
 
     private String solution(String inputStr) {
@@ -18,6 +34,7 @@ public class CountFromChar {
 
         // KS TTT S EE K F KKK D JJ GG
         // K S T3 S E2 K F K3 D J2 G2
+        //
         String answer = "";
         for (int i = 0; i < inputStr.length()-1; i++) {
             int count = 0;
