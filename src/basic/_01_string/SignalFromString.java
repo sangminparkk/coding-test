@@ -9,15 +9,19 @@ public class SignalFromString {
         int number = sc.nextInt();
         String inputStr = sc.next();
         SignalFromString signalFromString = new SignalFromString();
-        int MAX_SIZE = 7;
+        System.out.print(signalFromString.solution2(number, inputStr));
+    }
 
+    private String solution2(int number, String password) {
+        String answer = "";
+        // #, * > replace
         for (int i = 0; i < number; i++) {
-            int startPoint = i * MAX_SIZE;
-            int endPoint = Math.min(startPoint + MAX_SIZE, inputStr.length());
-
-            String password = inputStr.substring(startPoint, endPoint);
-            System.out.print(signalFromString.solution(password));
+            String word = password.substring(0, 7).replace("#", "1").replace("*", "0");
+            answer += (char) Integer.parseInt(word, 2);
+            password = password.substring(7);
         }
+
+        return answer;
     }
 
     private Character solution(String str) {
