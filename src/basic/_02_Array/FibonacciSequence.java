@@ -8,9 +8,24 @@ public class FibonacciSequence {
         int counter = scanner.nextInt();
 
         FibonacciSequence fibonacciSequence = new FibonacciSequence();
-        for (int number : fibonacciSequence.solution3(counter)) {
-            System.out.print(number + " ");
+        fibonacciSequence.solution4(counter);
+    }
+
+    private void solution4(int counter) {
+        int previous = 1;
+        int current = 1;
+        int next = 0;
+
+        // 컨셉은 생각했으나, 아래 코딩으로 구현 못했음
+        System.out.print(previous + " " + current + " ");
+
+        for (int i = 2; i < counter; i++) {
+            next = previous + current;
+            System.out.print(next + " ");
+            previous = current;
+            current = next;
         }
+
     }
 
     private Integer[] solution3(int counter) {
