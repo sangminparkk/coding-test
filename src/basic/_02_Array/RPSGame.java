@@ -20,7 +20,24 @@ public class RPSGame {
 
         RPSGame rpsGame = new RPSGame();
 
-        rpsGame.solution(roundCounter, playerA, playerB).forEach(System.out::println);
+        for (Character c : rpsGame.solution2(roundCounter, playerA, playerB).toCharArray()) {
+            System.out.println(c);
+        }
+    }
+
+    private String solution2(int roundCounter, Integer[] playerA, Integer[] playerB) {
+        String answer = "";
+        for (int i = 0; i < roundCounter; i++) {
+            if (playerA[i].equals(playerB[i])) {
+                answer += "D";
+            } else if (playerA[i].equals(1) && playerB[i].equals(2) || playerA[i].equals(2) && playerB[i].equals(3) || playerA[i].equals(3) && playerB[i].equals(1)) {
+                answer += "B";
+            } else {
+                answer += "A";
+            }
+        }
+
+        return answer;
     }
 
     private List<Character> solution(int roundCounter, Integer[] playerA, Integer[] playerB) {
