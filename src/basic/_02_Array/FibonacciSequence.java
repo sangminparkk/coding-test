@@ -8,9 +8,21 @@ public class FibonacciSequence {
         int counter = scanner.nextInt();
 
         FibonacciSequence fibonacciSequence = new FibonacciSequence();
-        for (int number : fibonacciSequence.solution2(counter)) {
+        for (int number : fibonacciSequence.solution3(counter)) {
             System.out.print(number + " ");
         }
+    }
+
+    private Integer[] solution3(int counter) {
+        Integer[] numbers = new Integer[counter];
+
+        numbers[0] = 1;
+        numbers[1] = 1;
+
+        for (int i = 2; i < counter; i++) {
+            numbers[i] = numbers[i-2] + numbers[i-1];
+        }
+        return numbers;
     }
 
     private Integer[] solution2(int counter) {
