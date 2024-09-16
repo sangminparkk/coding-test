@@ -8,9 +8,25 @@ public class PrimeNumberCounter {
         int counter = scanner.nextInt();
 
         PrimeNumberCounter primeNumberCounter = new PrimeNumberCounter();
-        int result = primeNumberCounter.solution(counter);
+        int result = primeNumberCounter.solution2(counter);
         System.out.println(result);
 
+    }
+//
+    private int solution2(int counter) {
+        int answer = 0;
+        int[] ch = new int[counter + 1]; // 해야 n번 index까지 생김
+        for (int i = 2; i <= counter; i++) {
+            if (ch[i] == 0) {
+                answer++;
+                // i의 배수를 모두 1로 만듦
+                for (int j = i; j <= counter; j=j+i) {
+                    ch[j] = 1;
+                }
+            }
+        }
+
+        return answer;
     }
 
     private int solution(int counter) {
