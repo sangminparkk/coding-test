@@ -26,7 +26,7 @@ public class TotalScore {
             grades[0] = 1;
         }
 
-        for (int i = 1; i < counter-1; i++) {
+        for (int i = 1; i < counter; i++) {
             // 틀린경우
             if (test[i-1] > test[i]) {
                 grades[i] = 0;
@@ -38,7 +38,6 @@ public class TotalScore {
                 grades[i] = grades[i - 1] + 1;
             }
         }
-
 
         return Arrays.stream(grades).sum();
     }
