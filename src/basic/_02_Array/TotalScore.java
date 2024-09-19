@@ -13,7 +13,20 @@ public class TotalScore {
         }
 
         TotalScore totalScore = new TotalScore();
-        System.out.println(totalScore.solution(counter, test));
+        System.out.println(totalScore.solution2(counter, test));
+    }
+
+    private int solution2(int counter, int[] test) {
+        int answer = 0, cnt = 0;
+        for (int i = 0; i < counter; i++) {
+            if (test[i] == 1) {
+                cnt++;
+                answer += cnt;
+            } else {
+                cnt = 0;
+            }
+        }
+        return answer;
     }
 
     private int solution(int counter, int[] test) {
