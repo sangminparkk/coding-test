@@ -14,9 +14,24 @@ public class PrizeFilter {
 
         PrizeFilter prizeFilter = new PrizeFilter();
 
-        for (int prize : prizeFilter.solution(counter, grades)) {
+        for (int prize : prizeFilter.solution2(counter, grades)) {
             System.out.print(prize + " ");
         }
+    }
+
+    private int[] solution2(int counter, int[] grades) {
+        int[] answer = new int[counter];
+
+        for (int i = 0; i < counter; i++) {
+            int prize = 1;
+            for (int j = 0; j < counter; j++) {
+                if (grades[j] > grades[i]) {
+                    prize++;
+                }
+            }
+            answer[i] = prize;
+        }
+        return answer;
     }
 
     private int[] solution(int counter, int[] grades) {
