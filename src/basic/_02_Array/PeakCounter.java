@@ -15,8 +15,33 @@ public class PeakCounter {
         }
 
         PeakCounter peakCounter = new PeakCounter();
-        System.out.println(peakCounter.solution(n, grid));
+        System.out.println(peakCounter.solution2(n, grid));
 
+    }
+
+    private int solution2(int n, int[][] grid) {
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, 1, 0, -1};
+        int count = 0;
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+                boolean flag = true;
+                for (int k = 0; k < 4; k++) {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] >= grid[i][j]) {
+                        flag = false;
+                        break; // 찾는순간 바로 break
+                    }
+                }
+                if (flag) count++;
+            }
+        }
+
+        return count;
     }
 
     private int solution(int n, int[][] grid) {
