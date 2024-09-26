@@ -7,9 +7,9 @@ public class LeaderFilter {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
-        int[][] grid = new int[n][n];
+        int[][] grid = new int[n+1][6]; // grade fix
         for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
+            for (int j = 1; j <= 5; j++) {
                 grid[i][j] = scanner.nextInt();
             }
         }
@@ -19,18 +19,28 @@ public class LeaderFilter {
     }
 
     private int solution(int n, int[][] grid) {
-        int answer = 0; // 몇번 학생
-        int[] students = {1,2,3,4,5};
-        int count = 0;
+        int answer = 0;
+        int max = Integer.MIN_VALUE;
 
-        // 0번 학생
         for (int i = 1; i <= n; i++) {
+            int count = 0;
+
             for (int j = 1; j <= n; j++) {
-                grid[i][students[i]] == grid[j][i]
+                for (int k = 1; k <= 5; k++) {
+                    if (grid[i][k] == grid[j][k]) {
+                        count++;
+                        break;
+                    }
+                }
+            }
+
+            if (count > max) {
+                max = count;
+                answer = i;
             }
         }
 
-        return answer+1;
+        return answer;
     }
 
 }
