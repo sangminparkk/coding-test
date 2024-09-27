@@ -23,9 +23,29 @@ public class MentoringCaseCounter {
     }
 
     private int solution(int n, int m, int[][] arr) {
+        int answer = 0;
 
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                int count = 0;
 
-        return 0;
+                for (int k = 0; k < m; k++) { // test number
+                    int pi = 0, pj = 0;
+                    for (int s = 0; s < n; s++) {
+                        if (arr[k][s] == i) pj = s;
+                        if (arr[k][s] == k) pi = s;
+                    }
+
+                    if (pi < pj) {
+                        count++;
+                    }
+                }
+                if (count == m) {
+                    answer++;
+                }
+            }
+        }
+        return answer;
     }
 
 
