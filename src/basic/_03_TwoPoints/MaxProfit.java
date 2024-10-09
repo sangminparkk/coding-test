@@ -33,6 +33,12 @@ public class MaxProfit {
             max = Math.max(max, sum);
         }
 
+        /**
+         * 이전 코드의 문제점 : 조건부 슬라이딩 처리
+         * 무조건 슬라이딩 처리가 우선적으로 해야했고,
+         * 그다음에 sum 이 max보다 큰 경우, max값으로 대체했어야 함
+         */
+
         return max;
     }
 }
