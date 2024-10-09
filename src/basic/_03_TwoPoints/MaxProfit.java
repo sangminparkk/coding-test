@@ -29,10 +29,8 @@ public class MaxProfit {
 
         max = sum;
         for (int i = k; i < arr.length; i++) {
-            if (sum + arr[i] - arr[i - k] > max) {
-                sum = sum + arr[i] - arr[i - k];
-                max = sum;
-            }
+            sum += (arr[i] - arr[i - k]);
+            max = Math.max(max, sum);
         }
 
         return max;
